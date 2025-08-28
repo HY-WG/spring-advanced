@@ -61,7 +61,8 @@ class CommentServiceTest {
         Todo todo = new Todo("title", "title", "contents", user);
         Comment comment = new Comment(request.getContents(), user, todo);
 
-        given(todoRepository.findById(anyLong())).willReturn(Optional.of(todo));
+        // Optional.of(todo)); -> Optional.empty()); 으로 변경 “DB에 값 없음” 상황을 시뮬레이션
+        given(todoRepository.findById(anyLong())).willReturn(Optional.empty());
         given(commentRepository.save(any())).willReturn(comment);
 
         // when
