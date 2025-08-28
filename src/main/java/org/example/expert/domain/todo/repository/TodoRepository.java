@@ -28,5 +28,5 @@ public interface TodoRepository extends JpaRepository<Todo, Long> {
 //            "WHERE t.id = :todoId")
 //    Optional<Todo> findByIdWithUser(@Param("todoId") Long todoId);
 
-    int countById(Long todoId); // countById 이건 뭐지
+    int countById(Long todoId); // countById 이건 어디에 쓰이는가?
 }
