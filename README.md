@@ -8,48 +8,63 @@
 
 ## 프로젝트 소개
 **Java 코드 개선과 테스트 코드 작성**을 학습하는 연습용 프로젝트입니다.  
-JPA 심화 학습과 Spring 구조 복습, 테스트 코드 작성을 통한 **코드 안정성과 유지보수성 확보**를 목표로 합니다.
+JPA 및 Spring 기본 구조 학습. 테스트 코드 작성을 통한 **코드 안정성과 유지보수성 확보**를 목표로 합니다.
 
-📌 핵심 학습 포인트:
-- JPA 심화 학습과 Spring 기본 구조 복습
-- 테스트 코드로 기존 코드 검증 및 안정성 확보
-- 핵심 비즈니스 로직 깔끔하게 관리
+📌 핵심 학습:
 - Given-When-Then 패턴을 적용한 테스트 코드 작성
-
+- 오류 메시지 읽기
+- 오류를 패턴화 하여 test 진행
 ---
 
-## 학습 단계별 내용
+## 학습 내용
 
-### **Level 1**
-**코드 개선 퀴즈: Early Return**  
-- 불필요한 조건문 제거
-- 가독성 향상
+### Lv 1: ArgumentResolver
+**학습 요소**
+- `HandlerMethodArgumentResolver` 사용법
+- `@Auth` 커스텀 어노테이션
+- `WebMvcConfigurer`에서 `Resolver` 등록 방법
+- `HttpServletRequest`에서 `setAttribute/getAttribute` 사용용
 
-### **Level 2**
-**리팩토링 퀴즈: 불필요한 if-else 피하기**  
-- 조건문 간소화
-- 코드 구조 개선
+## Lv 2. [코드 개선]  
+---
+### Lv 2-1. [코드 개선]  Early Return
+**학습 요소**
+- Early Return 패턴
+- if문 조건 판단 순서
+- 불필요한 연산 최소화
 
-### **Level 3**
-**코드 개선 퀴즈: Validation & N+1 문제**  
-- `TodoController`와 `TodoService` 활용
-- 데이터 처리 최적화
+### Lv 2-2. [코드 개선 ] 리팩토링 퀴즈 - 불필요한 if-else 피하기
+**학습 요소**
+- HttpStatus 확인
+- 배열 null/empty 체크
+  
+### Lv 2-3. [코드 개선] 코드 개선 퀴즈 - Validation
+**학습 요소**
+- `@Valid` 사용법
+- `@Size`, `@Pattern` 등 Bean Validation 어노테이션
+- DTO에서 Validation 처리 후 컨트롤러에서 `@Valid`로 적용
 
-### **Level 4**
-**테스트 코드 연습**  
-- Postman 또는 IntelliJ에서 API 테스트
-- 추천 라이브러리: Spring Boot Test + JUnit + MockMvc
+### Lv 3. N+1 문제
+**학습 요소**
+- @EntityGraph 사용법
+- N+1 문제 개념
+- Repository 쿼리 최적화
 
-### **Level 5**
-**API 로깅**  
-- 요청/응답 로그 기록
-- 로깅 구조 학습
+## Lv 4 [테스트코드 연습]
+### Lv 4-1. [테스트코드 연습] 예상대로 성공하는지
+**학습 요소**
+- JUnit 테스트 구조
+- Given-When-Then 패턴
+- PasswordEncoder.matches(raw, encoded) 순서 확인
+
+### Lv 4-2. [테스트코드 연습] 예상대로 예외처리 하는지.
+**학습 요소**
+- `InvalidRequestException`
+-  `Optional`
+-  `NPE(NullPointerException)` 가능성 체크
 
 ---
 
 ## Git Commit 컨벤션
 - 단계별 레벨 표시
-```text
-Lv1-1: Early Return
-Lv2-1: 불필요한 if-else 개선
-Lv3-1: Validation 및 N+1 문제 개선
+
