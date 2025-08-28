@@ -39,14 +39,15 @@ class ManagerServiceTest {
     private ManagerService managerService;
 
     @Test
-    public void manager_목록_조회_시_Todo가_없다면_NPE_에러를_던진다() {
-        // given
+    public void manager_목록_조회_시_Todo가_없다면_InvalidRequestException_에러를_던진다() {
+        // given : TodoRepository에서 해당 Todo가 존재하지 않음을 설정
         long todoId = 1L;
         given(todoRepository.findById(todoId)).willReturn(Optional.empty());
 
-        // when & then
+        // when :getManagers 메서드를 호출
+        // & then : Todo가 없으므로 InvalidRequestException이 발생해야 함
         InvalidRequestException exception = assertThrows(InvalidRequestException.class, () -> managerService.getManagers(todoId));
-        assertEquals("Manager not found", exception.getMessage());
+        assertEquals("Todo not found", exception.getMessage());
     }
 
     @Test
